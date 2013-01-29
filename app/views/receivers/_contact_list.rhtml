@@ -1,0 +1,30 @@
+<% if contact_type == 'to'
+  contact = @recipients
+  contact_title = '我的收件人列表'
+else
+  contact = @cc_recipients
+  contact_title = '我的邮件抄送人列表'
+end
+%>
+<span class="contact_title"><%= contact_title %></span><br/>
+<% if contact.empty? %>
+  <span>还没有任何收件人，请添加！</span><br/>
+<%else%>
+  <table class="list recipients">
+    <thead>
+      <tr>
+        <th>名字</th>
+        <th>email地址</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% contact.each do |c| %>
+        <tr id="contact_<%=c.id%>" class="<%= cycle('odd', 'even') %>">
+          <%= render :partial => 'contact_item', :locals => {:c => c} %>
+        </tr>
+        <tr id="contact_edit_<%=c.id%>"></tr>
+      <% end %>
+    </tbody>
+  <% end %>
+</table>
+

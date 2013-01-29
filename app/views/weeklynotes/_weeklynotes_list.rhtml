@@ -1,0 +1,11 @@
+<span>最近两周周报</span>
+<% if weeklynotes.empty? %>
+  <p>还没有工作日报，请添加！</p>
+<% else %>
+  <% weeklynotes.each do |w| %>
+    <fieldset id="weeklynote_contact_<%=w.id%>" class="<%= cycle('odd', 'even') %>">
+      <legend>周范围：<%= w.start_date.strftime("%y-%m-%d %a") %>～<%= w.end_date.strftime("%y-%m-%d %a") %></legend>
+      <p><%= w.note %></p>
+    </fieldset>
+  <% end %>
+<% end %>

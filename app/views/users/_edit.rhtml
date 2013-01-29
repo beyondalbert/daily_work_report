@@ -1,0 +1,7 @@
+<% form_remote_tag :url => {:controller => 'users', :action => 'update'}, :method => :post do %>
+  <p>姓：<%= text_field_tag 'lastname', current_user.lastname, :size => 10 %></p>
+  <p>名：<%= text_field_tag 'firstname', current_user.firstname, :size => 10 %></p>
+  <%= submit_tag '更新' %>
+  <%= link_to '取消', :controller => 'users', :action => 'index' %>
+<% end %>
+

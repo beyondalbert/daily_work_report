@@ -1,0 +1,11 @@
+<span>最近7天的日工作总结</span>
+<% if dailynotes.empty? %>
+  <span>还没有工作日报，请添加！</span>
+<% else %>
+  <% dailynotes.each do |d| %>
+    <fieldset id="contact_<%=d.id%>" class="<%= cycle('odd', 'even') %>">
+      <legend><%= d.date.strftime("%y-%m-%d %a %w") %></legend>
+      <p><%= d.note %></p>
+    </fieldset>
+  <% end %>
+<% end %>

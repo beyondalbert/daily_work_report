@@ -1,0 +1,9 @@
+<td><%= text_field_tag "name_#{@contact.id}", @contact.name, :size => 10%></td>
+<td><%= text_field_tag "email_address_#{@contact.id}", @contact.email, :size => 40%></td>
+<td><%= link_to_remote image_tag('save.png'), 
+    :url => {:controller => 'receivers', :action => 'edit_save', :id => @contact.id},
+    :update => "contact_#{@contact.id}",
+    :with => "'name='+$('name_#{@contact.id}').value+'&email_address='+$('email_address_#{@contact.id}').value",
+    :after => "Element.hide('contact_edit_#{@contact.id}')"%></td>
+<td><a href="#" onclick="Element.hide('contact_edit_<%= @contact.id%>')"><%= image_tag('cancel.png')  %></a></td>
+

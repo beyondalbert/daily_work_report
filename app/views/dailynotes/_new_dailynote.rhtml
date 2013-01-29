@@ -1,0 +1,14 @@
+<% form_remote_tag :url => {:controller => 'dailynotes', :action => 'create'},
+  :method => :post,
+  :html => {:id => 'new_dailynote_form' } do %>
+  <p>时间：<%= text_field_tag 'date', '', :size => 10 %></p>
+  <%= observe_field :date, 
+    :frequency => 0.1,
+    :url => {:controller => :dailynotes, :action => :date_change},
+    :with => "'date='+$('date').value"%>
+  <p>内容：</p>
+  <div id="daily_note_content">
+    <%= render :partial => 'daily_note_content', :locals => {:note => nil} %>
+  </div>
+<% end %>
+<div id="weekly_mail_preview"></div>

@@ -1,0 +1,6 @@
+<% form_remote_tag :url => {:controller => 'receivers', :action => 'create', :contact_type => @contact_type}, :html => {:id => "new_form_#{@contact_type}"} do %>
+  <p><%= (@contact_type == 'to' ? '收件人名字' : '抄送人名字') %>:<%= text_field_tag 'name' %></p>
+  <p><%= (@contact_type == 'to' ? '收件人email' : '抄送人email') %>:<%= text_field_tag 'email_address' %></p>
+  <%= submit_tag '保存'%>
+  <input type="button" value="取消" onclick="Element.hide('new_form_<%=@contact_type%>')">
+<% end %>

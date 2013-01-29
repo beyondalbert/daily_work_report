@@ -1,0 +1,13 @@
+<% form_remote_tag :url => {:controller => 'weeklynotes', :action => 'create'},
+  :method => :post,
+  :html => {:id => 'new_dailynote_form' } do %>
+  <p>时间：<%= text_field_tag 'start_date', '', :size => 10 %>-<span id="end_date_span"><%= text_field_tag 'end_date', '', :size => 10, :disabled => true %></span></p>
+  <%= observe_field :start_date, 
+    :frequency => 0.1,
+    :url => {:controller => :weeklynotes, :action => :start_date_change},
+    :with => "'start_date='+$('start_date').value"%>
+  <p>内容：</p>
+  <div id="weekly_note_content">
+    <%= render :partial => 'weeklynotes/weekly_note_content', :locals => {:note => nil} %>
+  </div>
+<% end %>

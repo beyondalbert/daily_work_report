@@ -1,0 +1,10 @@
+<% @week_notes.each do |note| %>
+  <% if @week_notes.last == note && note.date > @date %>
+    <span style="background-color: yellow"><%= note.date.strftime('%m.%d') %>(周<%= note.date.wday %>)计划</span>
+  <% else %>
+    <span style="background-color: green"><%= note.date.strftime('%m.%d') %>(周<%= note.date.wday %>)小结</span>
+  <% end %>
+  <p><%= note.note %></p>
+<% end %>
+<span style="background-color: yellow">本周计划<%= @weeklynote.start_date.strftime('%m.%d') %>—<%= @weeklynote.end_date.strftime('%m.%d') %></span>
+<p><%= @weeklynote.note %></p>

@@ -1,0 +1,9 @@
+<p><%= text_area_tag 'dailynote', note, :size => "50x10" %></p>
+<p><%= check_box_tag("send_dailynote", "yes", note.nil? ? true : false) %>同时发送日报</p>
+<% if note.nil? %> 
+  <%= submit_tag '添加' %>
+<% else %>
+  <%= submit_to_remote '更新', '更新', :url => {:controller => 'dailynotes', :action => 'update'} %>
+<% end %>
+<input type="button" value="清除" onclick="clear_element_value(['date', 'dailynote'])">
+<%= submit_to_remote '预览', '预览', :url => {:controller => 'dailynotes', :action => 'preview'}%>

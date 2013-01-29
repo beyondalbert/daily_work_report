@@ -1,0 +1,4 @@
+<% @week_notes.each do |note| %>
+<%= note.date.strftime('%m.%d') %>(周<%= note.date.wday %>)小结
+<%= note.note %>
+<% end %>

@@ -1,0 +1,5 @@
+<p>名字：<%= current_user.name %></p>
+<p>登入次数：<%= current_user.sign_in_count %></p>
+<p>最后登入的IP地址：<%= current_user.last_sign_in_ip %></p>
+<p>当前登入的IP地址：<%= current_user.current_sign_in_ip %></p>
+<%= button_to_remote '编辑', :url => {:controller => 'users', :action => 'edit'} %>

@@ -1,0 +1,7 @@
+<p><%= text_area_tag 'weeklynote', note, :size => "50x10" %></p>
+<% if note.nil? %>
+  <%= submit_tag '添加' %>
+<% else %>
+  <%= submit_to_remote '更新', '更新', :url => {:controller => 'weeklynotes', :action => 'update'} %>
+<% end %>
+<input type="button" value="清除" onclick="clear_element_value(['start_date', 'end_date', 'weeklynote'])">

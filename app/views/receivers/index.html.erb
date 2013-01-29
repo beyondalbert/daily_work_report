@@ -1,0 +1,16 @@
+<div id="recipients" class="splitcontentleft">
+  <div id="recipients_list">
+    <%= render :partial => 'contact_list', :locals => {:contact_type => 'to'} %>
+  </div>
+  <%= button_to_remote '新建收件人', 
+    :url => {:controller => 'receivers', :action => 'new', :contact_type => 'to'}%>
+  <div id="new_recipient"></div>
+</div>
+<div id="cc_recipients" class="splitcontentright">
+  <div id="cc_recipients_list">
+    <%= render :partial => 'contact_list', :locals => {:contact_type => 'cc'} %>
+  </div>
+  <%= button_to_remote '新建抄送人', 
+    :url => {:controller => 'receivers', :action => 'new', :contact_type => 'cc'}%>
+  <div id="new_cc_recipient"></div>
+</div>
