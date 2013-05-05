@@ -56,7 +56,7 @@ Rails::Initializer.run do |config|
     :domain         => "www.163.com",
     :authentication => :login,
     :user_name      => "beyongyuqifeng@163.com",
-    :password       => "albertyu8858"
+    :password       => "123456"
   }
 end
 ActionMailer::Base.default_content_type = "text/html"
